@@ -2,14 +2,14 @@ import threading
 from pynput import keyboard
 import winsound
 
-# Flag to manage the playing state
+
 playing = False
 current_thread = None
 
 def play_sound(frequency):
     global playing
     while playing:
-        winsound.Beep(frequency, 500)  # 100 ms duration
+        winsound.Beep(frequency, 500)  
 
 def on_press(key):
     global playing, current_thread
@@ -32,7 +32,7 @@ def on_press(key):
         elif hasattr(key, 'char') and key.char == 'f':
             current_thread = threading.Thread(target=play_sound, args=(1046,))
         
-        # Start the thread if a valid key was pressed
+    
         if current_thread:
             current_thread.start()
 
@@ -42,6 +42,6 @@ def on_release(key):
     if current_thread and current_thread.is_alive():
         current_thread.join()
 
-# Set up the keyboard listener
+
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
