@@ -22,3 +22,5 @@ Press the corresponding keys to play the notes.
 ## How it Works
 
 It works by taking the frequencies of each note, and when the key for that frequency is pressed, it plays the .wav file.
+
+Demo: https://www.youtube.com/watch?v=6aCpx02h738
